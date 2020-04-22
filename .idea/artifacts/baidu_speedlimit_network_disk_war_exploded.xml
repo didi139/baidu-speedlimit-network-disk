@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="baidu-speedlimit-network-disk:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/baidu_speedlimit_network_disk_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="baidu-speedlimit-network-disk/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="baidu-speedlimit-network-disk" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

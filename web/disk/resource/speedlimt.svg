@@ -1,0 +1,18 @@
+<svg width="258" height="258" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="260" width="260" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#ff0000" ry="111" rx="111" id="svg_1" cy="128.750006" cx="128.75" stroke-width="17" fill="#ffffff"/>
+  <text font-weight="bold" stroke="#ff0000" transform="matrix(5.524849269450709,0,0,5.248638740815289,-443.44683554134576,-285.267956035425) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_3" y="84.245771" x="86.313152" fill-opacity="null" stroke-width="0" fill="#000000">40</text>
+  <text stroke="#ff0000" transform="matrix(0.8535304061648845,0,0,1.0599214288988699,62.48403504815069,-16.400959257909907) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_4" y="163.479893" x="136.914092" fill-opacity="null" stroke-width="0" fill="#000000">KB/S</text>
+  <text font-weight="normal" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_5" y="197.296306" x="137.000935" stroke-width="0" stroke="#ff0000" fill="#000000">限速</text>
+ </g>
+</svg>

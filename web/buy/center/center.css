@@ -1,0 +1,240 @@
+body {
+    min-width: 1100px;
+}
+
+.baidu-navbar {
+    height: 68px;
+    background-color: transparent;
+}
+
+.baidu-nav {
+    margin-right: 80px;
+}
+
+.baidu-nav-item {
+}
+
+.baidu-logo {
+    height: 60%;
+    margin-top: auto;
+}
+
+.baidu-nav-link {
+    color: white;
+}
+
+.baidu-nav-link:hover {
+    color: goldenrod;
+}
+
+.baidu-underline {
+    position: relative;
+    color: goldenrod;
+}
+
+.baidu-underline::after {
+    position: absolute;
+    background-color: goldenrod;
+    top: 140%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    content: '';
+}
+
+.baidu-user {
+    height: 60%;
+    width: 100px;
+}
+
+.baidu-nav-btn-login {
+    display: inline;
+    color: white;
+    padding: 5px;
+    width: 120px;
+    border-color: white;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    background-color: transparent;
+}
+
+.baidu-nav-btn-login:hover {
+    border-color: gray;
+    background-color: transparent;
+}
+
+.baidu-user-info {
+    display: inline;
+    position: relative;
+    height: 100%;
+}
+
+.baidu-portrait {
+    height: 100%;
+    border: chocolate 1px solid;
+    overflow: hidden;
+}
+
+.baidu-user-info-extension {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 230px;
+    height: 100px;
+    background-color: deepskyblue;
+}
+
+.baidu-user-info:hover > .baidu-user-info-extension {
+    display: block;
+}
+
+.baidu-nav-btn-buy-svip {
+    display: inline;
+    color: black;
+    padding: 5px 0;
+    margin: 0 10px 0 30px;
+    width: 120px;
+    border-color: goldenrod;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    background-color: goldenrod;
+}
+
+.baidu-nav-btn-buy-svip:hover {
+    color: black;
+    border-color: goldenrod;
+    background-color: goldenrod;
+}
+
+.baidu-nav-link-extension {
+    font-size: 0.8rem;
+}
+
+.baidu-banner-vip {
+    background-image: url("resource/banner.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 250px;
+}
+
+.baidu-banner-vip-slogan {
+    color: tomato;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.baidu-banner-vip-btn {
+    background-color: tomato;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    padding: 8px 40px;
+}
+
+.baidu-banner-vip-btn:hover {
+    background-color: tomato;
+}
+
+.baidu-banner-vip-btn:active {
+    background-color: tomato;
+}
+
+.sign {
+    position: relative;
+    font-size: 1.6rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.sign::before {
+    position: absolute;
+    right: 105%;
+    background-image: url("resource/left_arrow.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100px;
+    content: '';
+}
+
+.sign::after {
+    position: absolute;
+    left: 105%;
+    background-image: url("resource/right_arrow.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100px;
+    content: '';
+}
+
+.baidu-vip-privilege {
+    width: 220px;
+    height: 200px;
+}
+
+.baidu-vip-privilege:hover {
+    box-shadow: 0 0 1px 0 gray;
+}
+
+.baidu-vip-privilege-img {
+    width: 60px;
+    height: 60px;
+}
+
+.baidu-vip-privilege-title {
+    font-size: 18px;
+    margin-top: 23px;
+}
+
+.baidu-vip-privilege-detail {
+    font-size: 12px;
+    color: gray;
+}
+
+.baidu-privilege-compare {
+    width: 20%;
+}
+
+.baidu-privilege-compare > li {
+    text-align: center;
+}
+
+.baidu-privilege-compare > li:first-child {
+    font-size: 1.5rem;
+    height: 80px;
+}
+
+.baidu-privilege-compare > li:nth-child(even) {
+    background-color: #fbf9f8;
+}
+
+.baidu-privilege-compare-svip {
+    width: 20%;
+}
+
+.baidu-privilege-compare-svip > li {
+    text-align: center;
+}
+
+.baidu-privilege-compare-svip > li:first-child {
+    font-size: 1.5rem;
+    height: 80px;
+    background-image: url("resource/recommend.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 60px;
+}
+
+.baidu-privilege-compare-svip > li:nth-child(odd) {
+    background-color: #fffaeb;
+}
+
+.baidu-privilege-compare-svip > li:nth-child(even) {
+    background-color: #fbf4e4;
+}
+
+/*.baidu-privilege-compare > tr > th {*/
+
+/*}*/
