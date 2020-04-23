@@ -11,19 +11,21 @@ public class BaiduDB {
     private static Connection conn;
     private static final String[] ss = {
             "create table if not exists user(" +
-                    "id int," +
-                    "username text," +
+                    "id integer," +
+                    "username text not null unique," +
                     "password text," +
-                    "primary key(id)" +
+                    "primary key(id autoincrement)," +
+                    "check (username not null)," +
+                    "unique (username)" +
                     ");",
             "create table if not exists resource(" +
-                    "id int," +
+                    "id integer," +
                     "data blob," +
-                    "primary key(id)" +
+                    "primary key(id autoincrement)" +
                     ");",
             "create table if not exists own(" +
-                    "user_id int," +
-                    "resource_id int," +
+                    "user_id integer," +
+                    "resource_id integer," +
                     "primary key(user_id, resource_id)" +
                     ");"
     };
@@ -34,7 +36,7 @@ public class BaiduDB {
                 if (conn == null) {
                     try {
                         Class.forName("org.sqlite.JDBC");
-                        conn = DriverManager.getConnection("jdbc:sqlite:D://baidu.db");
+                        conn = DriverManager.getConnection("jdbc:sqlite:baidu.db");
                         conn.setAutoCommit(false);
                         Statement stm = conn.createStatement();
                         for (String each : ss) {
@@ -53,9 +55,5 @@ public class BaiduDB {
     }
 
     private BaiduDB() {
-    }
-
-    public static void main(String[] args) {
-        connection();
     }
 }

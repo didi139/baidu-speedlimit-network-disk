@@ -52,7 +52,7 @@
 
         try {
             if (username != null && password != null) {
-                user = new User(username, password);
+                user = User.get(username, password);
             }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -68,7 +68,7 @@
         <div class="baidu-user-info">
             <img class="rounded-circle baidu-portrait" src="${pageContext.request.contextPath}/pandamen/22.jpg"
                  alt="portrait"/>
-            <span style="color: white;font-size: 0.8rem;"><%=user.getUsername().substring(0, 5)%></span>
+            <span style="color: white;font-size: 0.8rem;"><%=user.getUsername().substring(0, Math.min(user.getUsername().length(), 5))%></span>
             <div class="baidu-user-info-extension">
                 <img src="${pageContext.request.contextPath}/pandamen/22.jpg" style="width: 100%" alt=""/>
                 <div class="container justify-content-center bg-white"><%=user.getUsername()%>

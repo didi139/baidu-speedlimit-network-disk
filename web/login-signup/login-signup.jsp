@@ -1,5 +1,6 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="db.User" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -39,7 +40,23 @@
 <%
     if (request.getParameter("login") != null) {
         try {
-            new User(request.getParameter("username"), request.getParameter("password"));
+            if (User.get(request.getParameter("username"), request.getParameter("password")) == null) {
+                out.print("<script>window.alert('用户或密码不正确');</script>");
+            } else {
+                Cookie username = new Cookie("username", request.getParameter("username"));
+                Cookie password = new Cookie("password", request.getParameter("password"));
+                username.setPath("/");
+                password.setPath("/");
+                response.addCookie(username);
+                response.addCookie(password);
+                response.sendRedirect("../buy/center/vip.jsp");
+            }
+        } catch (Exception e) {
+            out.print("<script>window.alert('登录异常');</script>");
+        }
+    } else if (request.getParameter("signup") != null) {
+        try {
+            User.add(request.getParameter("username"), request.getParameter("password"));
             Cookie username = new Cookie("username", request.getParameter("username"));
             Cookie password = new Cookie("password", request.getParameter("password"));
             username.setPath("/");
@@ -47,20 +64,14 @@
             response.addCookie(username);
             response.addCookie(password);
             response.sendRedirect("../buy/center/vip.jsp");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            out.print("<script>window.alert('注册异常，请尝试新的用户名');</script>");
         }
-    }
-    for (Map.Entry<String, String[]> me : request.getParameterMap().entrySet()) {
-        System.out.println(me.getKey() + "  " + me.getValue()[0]);
-    }
-    if (request.getParameterMap() != null) {
-
     }
 %>
 
 <div id="d" style="position: absolute;">
-    <form>
+    <form method="post">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">账号</span>
