@@ -4,11 +4,13 @@
 $(window).on('scroll', () => $('.baidu-navbar').css('background-color', $(window).scrollTop() === 0 ? 'transparent' : '#000'));
 
 $(() => $('#login').click(() => {
-    window.location = "../../login-signup/login-signup.jsp";
+    window.location = "../../user/login.jsp";
+}));
+
+$(() => $('#home').click(() => {
+    window.location = "../../disk/home.jsp";
 }));
 
 $(()=>$('#logout').click(() => {
-    clearCookie('username');
-    clearCookie('password');
-    location.reload();
-}))();
+    window.location = "../../uc?exit";
+}));

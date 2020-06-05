@@ -1,6 +1,3 @@
-<%@ page import="db.User" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="java.util.Arrays" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -35,45 +32,22 @@
         <li class="nav-item baidu-nav-item"><a class="nav-link disabled" href="#"><span class="">会员卡</span></a></li>
     </ul>
 
-    <%
-        String username = null;
-        String password = null;
-        User user = null;
-        if (request.getCookies() != null) {
-            for (Cookie each : request.getCookies()) {
-                if (each.getName().equals("username")) {
-                    username = each.getValue();
-                }
-                if (each.getName().equals("password")) {
-                    password = each.getValue();
-                }
-            }
-        }
-
-        try {
-            if (username != null && password != null) {
-                user = User.get(username, password);
-            }
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        } catch (Exception ignored) {
-        }
-    %>
+    <jsp:useBean id="user" class="bean.UserBean" scope="session"/>
     <!-- user -->
     <div class="row baidu-user">
-        <% if (user == null) {%>
+        <% if (user.getName().equals("")) {%>
         <!-- login-button -->
         <button id="login" type="button" class="btn btn-outline-dark baidu-nav-btn-login">登录</button>
         <%} else {%>
         <div class="baidu-user-info">
             <img class="rounded-circle baidu-portrait" src="${pageContext.request.contextPath}/pandamen/22.jpg"
                  alt="portrait"/>
-            <span style="color: white;font-size: 0.8rem;"><%=user.getUsername().substring(0, Math.min(user.getUsername().length(), 5))%></span>
+            <span style="color: white;font-size: 0.8rem;"><%=user.getName().substring(0, Math.min(user.getName().length(), 5))%></span>
             <div class="baidu-user-info-extension">
                 <img src="${pageContext.request.contextPath}/pandamen/22.jpg" style="width: 100%" alt=""/>
-                <div class="container justify-content-center bg-white"><%=user.getUsername()%>
+                <div class="container justify-content-center bg-white"><%=user.getName()%>
                 </div>
-                <button type="button" class="btn btn-light container justify-content-center">进入网盘</button>
+                <button id="home" type="button" class="btn btn-light container justify-content-center">进入网盘</button>
                 <button id="logout" type="button" class="btn btn-light container justify-content-center">退出登录</button>
             </div>
         </div>
@@ -107,7 +81,6 @@
                 this.title = title;
                 this.detail = detail;
             }
-
         }
         Show[][] shows = {{
                 new Show("1.png", "2T大空间", "容量扩容至2T，存储更多"),
@@ -231,21 +204,6 @@
         <li class="list-group-item">熊猫人头像</li>
     </ul>
 </div>
-
-<div style="height: 100px"></div>
-<div class="row justify-content-center" style="width: 100%;"><span class="sign">建盘宗旨</span></div>
-<div class="container" style="font-size: 1.2rem;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎使用我们的产品！<strong>%°</strong>网盘建立的初衷是为了让人们更好的感受限速，体验来自社会的毒打。为了能够使大多数人拥有体验，我们采取了层层递进，步步为营，稳扎稳打，一击毙命的方法。首先，我们提供非限速网盘，大范围的吸引用户。在用户感受到我们网盘的免费，快速，大容量等优点后，使用量必然会飞速提高。接下来，我们只需要慢慢等待。在合适的时候，我们开始对非会员进行限速。紧随其后的是我们推出的会员与炒鸡会员，我们基于对人们的普遍心理的利用，在用户进行充值后，对成为会员的用户进行更进一步的限速。因为会员用户已经进行充值，为了不浪费钱加之大量资源还在我们的网盘上用户迫不得已只能继续使用我们的产品。在保证用户的前提下，我们成功限制了速度。
-    与此同时，我们在网上散播会员与炒鸡会员能够提速的谣言。结合我们网盘曾经拥有过非限速的时期，利用人们的侥幸心理，促使他们再次充值，保持老顾客，吸引新顾客。目前，我们的运营策略收效非常良好，我们将会再接再厉，继续研发更好的限速功能，争取向和我们那个同音不同名的兄弟看齐。
-</div>
-<%--<div style="height: 100px"></div>--%>
-<%--<div class="row justify-content-center" style="width: 100%;"><span class="sign" style="color: red;font-size: 2.5rem;">记住我们的口号</span>--%>
-<%--</div>--%>
-<%--<div class="row justify-content-center" style="width: 100%;"><span class="sign" style="font-size: 2.5rem;"> 👊👊👊 网盘限速哪家强，群英荟萃各千秋！ 👊👊👊</span>--%>
-<%--</div>--%>
-<%--<div class="row justify-content-center" style="width: 100%;"><span class="sign"--%>
-<%--                                                                   style="font-size: 2.5rem;"> 👊👊👊 若是<b>%°</b>居第二，试问谁人称第一！ 👊👊👊</span>--%>
-<%--</div>--%>
 <div style="height: 100px"></div>
 <div class="row justify-content-center" style="width: 100%;">©2020 <strong>%°</strong></div>
 <div style="height: 10px"></div>
