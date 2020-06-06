@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="user" class="bean.UserBean" scope="session"/>
+<% if (user.getName().equals("") && utils.Cookie.getCookieValue(request, "username") != null) {
+    response.sendRedirect("../../uc");
+}%>
 <html>
 <head>
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.svg" type="image/svg"/>
@@ -32,7 +36,6 @@
         <li class="nav-item baidu-nav-item"><a class="nav-link disabled" href="#"><span class="">会员卡</span></a></li>
     </ul>
 
-    <jsp:useBean id="user" class="bean.UserBean" scope="session"/>
     <!-- user -->
     <div class="row baidu-user">
         <% if (user.getName().equals("")) {%>

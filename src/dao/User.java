@@ -12,20 +12,19 @@ public class User {
         if (!initialized) {
             synchronized (BaiduDB.getConn()) {
                 if (!initialized) {
-                    Statement stmt = BaiduDB.getConn().createStatement();
-                    stmt.execute(
-                            "create table if not exists user(" +
-                                    "id integer," +
-                                    "username text," +
-                                    "password text," +
-                                    "primary key(id)," +
-                                    "check (username not null)," +
-                                    "unique (username)" +
-                                    ")"
-                    );
-                    stmt.close();
-                    BaiduDB.getConn().commit();
-                    initialized = true;
+                    try (Statement stmt = BaiduDB.getConn().createStatement()) {
+                        stmt.execute(
+                                "create table if not exists user(" +
+                                        "id integer," +
+                                        "username text," +
+                                        "password text," +
+                                        "primary key(id)," +
+                                        "check (username not null)," +
+                                        "unique (username)" +
+                                        ")"
+                        );
+                        initialized = true;
+                    }
                 }
             }
         }
@@ -42,7 +41,7 @@ public class User {
         }
     }
 
-    public static void check(String username, String password) throws SQLException, ClassNotFoundException, InvalidPasswordException, InvalidUsernameException {
+    public static int getId(String username, String password) throws SQLException, ClassNotFoundException, InvalidPasswordException, InvalidUsernameException {
         initialize();
         try (PreparedStatement preStmt = BaiduDB.getConn()
                 .prepareStatement("select * from user where username=? and password=? limit 1")) {
@@ -55,9 +54,15 @@ public class User {
                     } else {
                         throw new InvalidUsernameException();
                     }
+                } else {
+                    return rs.getInt(1);
                 }
             }
         }
+    }
+
+    public static void check(String username, String password) throws SQLException, ClassNotFoundException, InvalidPasswordException, InvalidUsernameException {
+        getId(username, password);
     }
 
     public static void create(String username, String password) throws SQLException, ClassNotFoundException, UsernameExistException {

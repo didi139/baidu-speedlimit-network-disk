@@ -13,7 +13,6 @@ class BaiduDB {
                 if (conn == null) {
                     Class.forName("org.sqlite.JDBC");
                     conn = DriverManager.getConnection("jdbc:sqlite:baidu.db");
-                    conn.setAutoCommit(false);
                 }
             }
         }

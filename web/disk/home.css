@@ -1,4 +1,9 @@
 body {
-    color: red;
-    background-color: green;
+    padding: 30px;
+}
+
+#bg {
+    background: beige;
+    padding: 30px;
+    min-height: 700px;
 }
