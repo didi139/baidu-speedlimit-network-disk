@@ -20,13 +20,13 @@
 </head>
 <body>
 <div id="bg">
-    <form action="${pageContext.request.contextPath}/ac" method="post">
+    <form action="${pageContext.request.contextPath}/ac" method="post" enctype="multipart/form-data">
         <input type="file" class="btn btn-primary" name="filename" required="required">
         <input type="submit" class="btn btn-primary" value="☁ 上传">
     </form>
     用户：
     <jsp:getProperty name="user" property="name"/>
-    欢迎！
+    欢迎！<a href="${pageContext.request.contextPath}/uc?exit">退出登录</a>
     <br/>
 
     <table class="table table-hover" style="margin-top: 30px">
@@ -53,7 +53,7 @@
         <tr>
             <td><%=it.getName()%>
             </td>
-            <td><%=it.getSize()%>
+            <td><%=it.getSize() + "B"%>
             </td>
             <td><%=it.getCreatedTime()%>
             </td>
