@@ -25,7 +25,7 @@ public class AssetController extends HttpServlet {
         String password = utils.Cookie.getCookieValue(req, "username");
         String filename = req.getParameter("filename");
         String type = req.getParameter("type");
-        type = type == null ? "create" : type;
+        type = type == null ? "" : type;
         try {
             int userId = User.getId(username, password);
             if (type.equals("update")) {
@@ -38,7 +38,9 @@ public class AssetController extends HttpServlet {
                 if (!Asset.exist(userId, filename)) {
                     throw new Asset.FileNoExistException();
                 }
-                resp.setHeader("Content-disposition", "attachment;filename=" + filename);
+                if (!type.equals("doNotDownload")) {
+                    resp.setHeader("Content-disposition", "attachment;filename=" + filename);
+                }
                 Asset.outputFile(userId, filename, resp.getOutputStream());
             }
         } catch (SQLException | ClassNotFoundException e) {

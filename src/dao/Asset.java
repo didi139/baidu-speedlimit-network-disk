@@ -129,7 +129,6 @@ public class Asset {
                 while ((len = is.read(b)) > 0) {
                     os.write(b, 0, len);
                 }
-                System.out.println(len);
             }
         }
     }

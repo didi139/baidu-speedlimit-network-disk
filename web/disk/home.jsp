@@ -57,7 +57,8 @@
             </td>
             <td><%=it.getCreatedTime()%>
             </td>
-            <td><a href="${pageContext.request.contextPath}/ac?filename=<%=it.getName()%>">下载</a>
+            <td><a href="${pageContext.request.contextPath}/ac?filename=<%=it.getName()%>&type=doNotDownload">查看</a>
+                <a href="${pageContext.request.contextPath}/ac?filename=<%=it.getName()%>">下载</a>
                 <a href="${pageContext.request.contextPath}/ac?filename=<%=it.getName()%>&type=delete">删除</a>
             </td>
         </tr>
