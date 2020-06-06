@@ -72,8 +72,8 @@
 
 <div class="row justify-content-center" style="width: 100%;"><span class="sign">会员尊享10项特权</span></div>
 <table class="container">
-    <%
-        class Show {
+    <%! // 之前使用局部内部类在Ubuntu部署时失败，改成类内部类
+        static class Show {
             public final String img;
             public final String title;
             public final String detail;
@@ -84,6 +84,8 @@
                 this.detail = detail;
             }
         }
+    %>
+    <%
         Show[][] shows = {{
                 new Show("1.png", "2T大空间", "容量扩容至2T，存储更多"),
                 new Show("2.png", "云解压", "在线解压2G内压缩包文件"),
