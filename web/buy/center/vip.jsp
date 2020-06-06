@@ -14,7 +14,6 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- custom style and script -->
     <link rel="stylesheet" href="center.css"/>
-    <script src="${pageContext.request.contextPath}/cookie.js"></script>
     <script src="center.js"></script>
 </head>
 <body>
